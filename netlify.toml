@@ -1,0 +1,11 @@
+# Deploys the VoiceGuardApp Expo project as a static web app
+[build]
+  base    = "VoiceGuardApp"
+  command = "npx expo export --platform web"
+  publish = "dist"
+
+# Single-page app: serve index.html for all client-side routes
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
