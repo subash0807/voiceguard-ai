@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite
+data/
+.env
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Streamlit secrets — NEVER commit this
+.streamlit/secrets.toml
+
+# Audio temp files
+*.wav
+*.mp3
+*.m4a
+*.ogg
+*.flac
+*.webm
