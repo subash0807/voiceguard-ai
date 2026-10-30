@@ -34,6 +34,33 @@ Open your browser at **http://localhost:8501**
 
 ---
 
+## Deploy to Streamlit Community Cloud
+
+This repository's UI is built with Streamlit, so deploy it on
+[Streamlit Community Cloud](https://share.streamlit.io/) rather than Vercel.
+Vercel expects a Python function entrypoint; `app.py` and `app_cloud.py` are
+Streamlit scripts, not serverless function handlers.
+
+1. Create a new app and select this repository, the `main` branch, and
+   `app_cloud.py` as the **Main file path**.
+2. In the app's **Advanced settings**, add your AssemblyAI API key:
+
+   ```toml
+   [assemblyai]
+   api_key = "your_assemblyai_api_key"
+   ```
+
+   Get a key from [AssemblyAI](https://www.assemblyai.com/). Do not commit the
+   key to the repository.
+3. Deploy. Streamlit Community Cloud installs dependencies from the root
+   `requirements.txt`.
+
+The cloud entrypoint uses AssemblyAI for transcription and keeps history in
+the current Streamlit session; it does not use local Whisper or persistent
+SQLite storage. Audio is sent to AssemblyAI for transcription.
+
+---
+
 ## Running Tests
 
 ```bash
